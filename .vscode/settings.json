@@ -1,0 +1,6 @@
+{
+  // 禁用 Python 虚拟环境自动激活
+  "python.terminal.activateEnvironment": false,
+  // 如果需要为这个项目指定特定的 Python 解释器，可以取消下面的注释
+  // "python.defaultInterpreterPath": "python"
+}
