@@ -56,10 +56,13 @@ def main() -> None:
     print(f"[demo] 抓取示例地址：{first_url}")
     results = scraper.run(limit=1)
     for item in results:
-        status = "OK" if item.markdown_path.exists() else "FAIL"
+        status = "OK" if item.markdown_path.is_file() else "FAIL"
+        markdown_display = (
+            item.markdown_path if item.markdown_path.is_file() else "N/A"
+        )
         print(
             f"  - {item.meta.language} | {item.meta.title} | {status} | "
-            f"Markdown: {item.markdown_path if item.markdown_path else 'N/A'}"
+            f"Markdown: {markdown_display}"
         )
         for warning in item.warnings:
             print(f"      ! {warning}")
